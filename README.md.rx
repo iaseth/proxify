@@ -1,0 +1,73 @@
+
+# Proxify
+[Proxify](https://proxify.netlify.app/) allows you to use netlify as a proxy server.
+
+I felt the need for a proxy server when I was working on {{ gh.link("iaseth/top-100-yc-companies") }}.
+Many of the top websites are blocked in my country for various reasons.
+So, I created [Proxify](https://proxify.netlify.app/).
+
+I am using {{ gh.link("iaseth/readmix", "readmix") }} for generating this README.
+You can view the source file [here](https://github.com/iaseth/proxify/blob/master/README.md.rx).
+
+
+## Table of contents
+{{ tableOfContents(doc) }}
+
+
+## Getting Started
+
+
+## Using with Python
+```python
+import requests
+
+PROXY_URL = "https://proxify.netlify.app/proxy"
+
+def getURL(pageURL):
+	data = {"pageURL": pageURL}
+	response = requests.post(PROXY_URL, json=data)
+	return response
+```
+
+## Using with JavaScript
+```
+import fetch from 'node-fetch';
+
+const PROXY_URL = "https://proxify.netlify.app/proxy";
+
+async function getURL (pageURL) {
+	const data = {
+		pageURL
+	};
+
+	const config = {
+		method: 'POST',
+		headers: {},
+		body: JSON.stringify(data)
+	}
+
+	const res = await fetch(PROXY_URL, config);
+	const htmlContent = await res.text();
+	return htmlContent;
+}
+```
+
+
+## Project details
+{{ npm.packageDetails() }}
+
+
+## Dependencies
+{{ npm.dependencyTable() }}
+
+
+## Dev dependencies
+{{ npm.devDependencyTable() }}
+
+
+## License
+{{ "LICENSE.md" | File }}
+
+
+{{ giveCredit() }}
+
