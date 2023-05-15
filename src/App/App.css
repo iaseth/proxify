@@ -18,4 +18,6 @@ h6, .h6, .p6 { @apply text-xs; }
 .H5, .P5 { @apply text-4xl; }
 .H6, .P6 { @apply text-3xl; }
 
-
+a {
+	@apply text-blue-700;
+}
