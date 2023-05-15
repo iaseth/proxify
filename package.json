@@ -1,5 +1,5 @@
 {
-  "name": "netlify-proxy-server",
+  "name": "proxify",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "node-fetch": "^3.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
