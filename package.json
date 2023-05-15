@@ -1,5 +1,6 @@
 {
   "name": "proxify",
+  "description": "Using Netlify as a Proxy Server.",
   "private": true,
   "version": "0.0.0",
   "type": "module",

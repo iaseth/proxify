@@ -26,6 +26,7 @@ You can view the source file [here](https://github.com/iaseth/proxify/blob/maste
 
 
 ## Using with Python
+You can see the full example at [python-example.js](https://github.com/iaseth/proxify/blob/master/python-example.js).
 ```python
 import requests
 
@@ -38,7 +39,8 @@ def getURL(pageURL):
 ```
 
 ## Using with JavaScript
-```
+You can see the full example at [javascript-example.js](https://github.com/iaseth/proxify/blob/master/javascript-example.js).
+```javascript
 import fetch from 'node-fetch';
 
 const PROXY_URL = "https://proxify.netlify.app/proxy";
@@ -62,11 +64,12 @@ async function getURL (pageURL) {
 
 
 ## Project details
-| `Name`         | `Value`   |
-| -------------- | --------- |
-| `Name`         | `proxify` |
-| `Version`      | `0.0.0`   |
-| `Dependencies` | `3`       |
+| `Name`         | `Value`                            |
+| -------------- | ---------------------------------- |
+| `Name`         | `proxify`                          |
+| `Description`  | `Using Netlify as a Proxy Server.` |
+| `Version`      | `0.0.0`                            |
+| `Dependencies` | `3`                                |
 
 
 
