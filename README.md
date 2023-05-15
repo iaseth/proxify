@@ -1,6 +1,8 @@
 
 # Proxify
-[Proxify](https://proxify.netlify.app/) allows you to use netlify as a proxy server.
+[Proxify](https://proxify.netlify.app/) allows you to use Netlify as a Proxy Server.
+Proxify just takes advantage of the fact that Netlify Functions can make fetch requests.
+I mostly use this for crawling blocked websites in my web scraping projects.
 
 I felt the need for a proxy server when I was working on [`iaseth/top-100-yc-companies`](https://github.com/iaseth/top-100-yc-companies).
 Many of the top websites are blocked in my country for various reasons.
@@ -23,10 +25,31 @@ You can view the source file [here](https://github.com/iaseth/proxify/blob/maste
 
 
 ## Getting Started
+* Install `node-fetch`:
+
+    ```
+    npm install node-fetch
+    ```
+
+* Drop the [proxy.js](https://github.com/iaseth/proxify/blob/master/netlify/functions/proxy.js) script into your `netlify/functions` folder.
+* Add the following to your [netlify.toml](https://github.com/iaseth/proxify/blob/master/netlify.toml) file:
+    ```
+    
+    [functions]
+      node_bundler = "esbuild"
+    
+    [[redirects]]
+    from = "/proxy"
+    to = "/.netlify/functions/proxy"
+    status = 200
+    ```
+    
+* You can now deploy your website to Netlify. Your proxy server will be ready at `your-app-name.netlify.app/proxy`.
+
 
 
 ## Using with Python
-You can see the full example at [python-example.js](https://github.com/iaseth/proxify/blob/master/python-example.js).
+You can see the full example at [python-example.py](https://github.com/iaseth/proxify/blob/master/python-example.py).
 ```python
 import requests
 
@@ -41,8 +64,6 @@ def getURL(pageURL):
 ## Using with JavaScript
 You can see the full example at [javascript-example.js](https://github.com/iaseth/proxify/blob/master/javascript-example.js).
 ```javascript
-import fetch from 'node-fetch';
-
 const PROXY_URL = "https://proxify.netlify.app/proxy";
 
 async function getURL (pageURL) {
@@ -102,8 +123,27 @@ async function getURL (pageURL) {
 
 
 ## License
-File not found: LICENSE.md
+MIT License
 
+Copyright (c) Ankur Seth.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 
 ## Credit
